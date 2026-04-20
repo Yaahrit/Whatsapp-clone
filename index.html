@@ -20,8 +20,8 @@
       </header>
       <div class="tabs">
         <input id="chats" type="radio" name="group" checked />
-        <input id="status" type="radio" name="group" checked />
-        <input id="calls" type="radio" name="group" checked />
+        <input id="status" type="radio" name="group" />
+        <input id="calls" type="radio" name="group" />
 
         <div class="buttons">
           <label for="chats">Chats</label>
@@ -33,11 +33,13 @@
           <div class="btn message">
             <ion-icon name="chatbubbles"></ion-icon>
           </div>
-          <div class="btn camera">
-            <div class="pencil">
+          <div class="status-btn-group">
+            <div class="pencil-btn">
               <ion-icon name="create"></ion-icon>
             </div>
-            <ion-icon name="camera"></ion-icon>
+            <div class="btn camera">
+              <ion-icon name="camera"></ion-icon>
+            </div>
           </div>
           <div class="btn call"><ion-icon name="call"></ion-icon></div>
         </div>
@@ -45,8 +47,9 @@
         <div class="content">
           <div class="box chats">
             <div class="data">
-              <div class="chatlist">
-                <div class="block unread open">
+              <div class="chatlist" id="chatList">
+                <!-- Chat blocks are dynamically handled, but keeping structure for CSS targeting -->
+                <div class="block unread" data-name="Jaani" data-img="images/pic-1.png">
                   <div class="imgbx">
                     <img src="images/pic-1.png" />
                   </div>
@@ -57,12 +60,12 @@
                     </div>
                     <div class="message_p">
                       <p>How to create a instagram id</p>
-                      <b>1</b>
+                      <b class="badge">1</b>
                     </div>
                   </div>
                 </div>
 
-                <div class="block unread">
+                <div class="block unread" data-name="Renuka" data-img="images/pic-2.png">
                   <div class="imgbx">
                     <img src="images/pic-2.png" />
                   </div>
@@ -73,28 +76,28 @@
                     </div>
                     <div class="message_p">
                       <p>Kaise h bhaiya</p>
-                      <b>2</b>
+                      <b class="badge">2</b>
                     </div>
                   </div>
                 </div>
 
-                <div class="block unread">
+                <div class="block unread" data-name="Jay" data-img="images/pic-3.png">
                   <div class="imgbx">
                     <img src="images/pic-3.png" />
                   </div>
                   <div class="details">
                     <div class="listhead">
                       <h4>Jay</h4>
-                      <p class="time">12/07/2023</p>
+                      <p class="time">12:07</p>
                     </div>
                     <div class="message_p">
                       <p>Project kiya</p>
-                      <b>3</b>
+                      <b class="badge">3</b>
                     </div>
                   </div>
                 </div>
 
-                <div class="block unread">
+                <div class="block unread" data-name="arshifa" data-img="images/arshifa-18.jpg">
                   <div class="imgbx">
                     <img src="images/arshifa-18.jpg" />
                   </div>
@@ -105,11 +108,11 @@
                     </div>
                     <div class="message_p">
                       <p>I love you</p>
-                      <b>4</b>
+                      <b class="badge">4</b>
                     </div>
                   </div>
                 </div>
-                <div class="block unread">
+                <div class="block unread" data-name="Sayista" data-img="images/me2.jpeg">
                   <div class="imgbx">
                     <img src="images/me2.jpeg" />
                   </div>
@@ -120,12 +123,12 @@
                     </div>
                     <div class="message_p">
                       <p>Hello</p>
-                      <b>5</b>
+                      <b class="badge">5</b>
                     </div>
                   </div>
                 </div>
 
-                <div class="block unread">
+                <div class="block unread" data-name="anushka sen" data-img="images/anushka2.jpg">
                   <div class="imgbx">
                     <img src="images/anushka2.jpg" />
                   </div>
@@ -136,7 +139,7 @@
                     </div>
                     <div class="message_p">
                       <p>Hello baby</p>
-                      <b>6</b>
+                      <b class="badge">6</b>
                     </div>
                   </div>
                 </div>
@@ -149,8 +152,8 @@
                 <div class="block">
                   <div class="imgbx">
                     <img src="images/anushka2.jpg" />
+                    <div class="plus"><ion-icon name="add"></ion-icon></div>
                   </div>
-                  <div class="plus">+</div>
                   <div class="details">
                     <div class="listhead">
                       <h4>My status</h4>
@@ -188,34 +191,6 @@
                     </div>
                   </div>
                 </div>
-
-                <div class="block unseen">
-                  <div class="imgbx">
-                    <img src="images/pic-3.png" />
-                  </div>
-                  <div class="details">
-                    <div class="listhead">
-                      <h4>Jay</h4>
-                    </div>
-                    <div class="message_p">
-                      <p>32 minutes ago</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="block unseen">
-                  <div class="imgbx">
-                    <img src="images/arshifa-18.jpg" />
-                  </div>
-                  <div class="details">
-                    <div class="listhead">
-                      <h4>arshifa</h4>
-                    </div>
-                    <div class="message_p">
-                      <p>2 minutes ago</p>
-                    </div>
-                  </div>
-                </div>
                 <label>Viewed updates</label>
                 <div class="block seen">
                   <div class="imgbx">
@@ -237,7 +212,7 @@
             <div class="data">
               <div class="chatlist">
                 <div class="block">
-                  <div class="imgbx green">
+                  <div class="imgbx green-icon">
                     <ion-icon name="link"></ion-icon>
                   </div>
                   <div class="details">
@@ -249,7 +224,7 @@
                     </div>
                   </div>
                 </div>
-                <label for="">Recent</label>
+                <label>Recent</label>
                 <div class="block">
                   <div class="imgbx">
                     <img src="images/avneet2.jpg" />
@@ -259,57 +234,24 @@
                       <h4>Avneet kaur</h4>
                     </div>
                     <div class="message_p incoming">
-                      <p>
-                        <ion-icon name="arrow-down"></ion-icon>23/12/2022 ,12:00
-                      </p>
+                      <p><ion-icon name="arrow-round-down"></ion-icon> 23/12/2022, 12:00</p>
                     </div>
                   </div>
-                  <ion-icon name="call" class="call"></ion-icon>
-                </div>
-                <div class="block">
-                  <div class="imgbx">
-                    <img src="images/me2.jpeg" />
-                  </div>
-                  <div class="details">
-                    <div class="listhead">
-                      <h4>Sayista</h4>
-                    </div>
-                    <div class="message_p incoming">
-                      <p>
-                        <ion-icon name="arrow-down"></ion-icon>12/01/2023 ,17:00
-                      </p>
-                    </div>
-                  </div>
-                  <ion-icon name="call" class="call"></ion-icon>
-                </div>
-                <div class="block">
-                  <div class="imgbx">
-                    <img src="images/pic-5.png" />
-                  </div>
-                  <div class="details">
-                    <div class="listhead">
-                      <h4>Adyta</h4>
-                    </div>
-                    <div class="message_p outgoing">
-                      <p>
-                        <ion-icon name="arrow-up"></ion-icon>Tomorrow ,11:00
-                      </p>
-                    </div>
-                  </div>
-                  <ion-icon name="call" class="call"></ion-icon>
+                  <ion-icon name="call" class="call-icon"></ion-icon>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <!-- <div class="chatBox hide">
-          <div class="chatheader" onclick="avneet();">
+
+        <div class="chatBox" id="chatBox">
+          <div class="chatheader">
+            <ion-icon name="arrow-back" class="back" id="backBtn"></ion-icon>
             <div class="imgcontent">
-              <ion-icon name="arrow-back" class="back"></ion-icon>
               <div class="imgbx">
-                <img src="images/pic-1.png" />
+                <img src="images/pic-1.png" id="chatUserImg" />
               </div>
-              <h3>Jaani<br /><span>Online</span></h3>
+              <h3><span id="chatUserName">Jaani</span><br /><span class="status-text">Online</span></h3>
             </div>
             <div class="actionbtns">
               <ion-icon name="videocam"></ion-icon>
@@ -317,26 +259,23 @@
               <ion-icon name="more"></ion-icon>
             </div>
           </div>
-          <div class="messageBox">
-            <div class="message">
-              how to make instagram clone by using html,css and javascript?<br /><span
-                class="time"
-                >12:00</span
-              >
+          <div class="messageBox" id="messageBox">
+            <!-- Messages load here -->
+          </div>
+          <div class="messageInput">
+            <div class="input-group">
+              <ion-icon name="happy"></ion-icon>
+              <input type="text" id="mainInput" placeholder="Type a message" />
+              <ion-icon name="link"></ion-icon>
+              <ion-icon name="camera"></ion-icon>
             </div>
-            <div class="messageInput">
-              <div class="input">
-                <ion-icon name="happy"></ion-icon>
-                <input type="text" placeholder="messages" />
-                <ion-icon name="link" class="deg45"></ion-icon>
-                <ion-icon name="camera"></ion-icon>
-              </div>
-              <div class="mic">
-                <ion-icon name="mic"></ion-icon>
-              </div>
+            <div class="send-btn" id="sendBtn">
+              <ion-icon name="mic" id="sendIcon"></ion-icon>
             </div>
           </div>
-        </div> -->
+        </div>
+
+
       </div>
     </div>
 
